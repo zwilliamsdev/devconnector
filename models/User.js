@@ -1,8 +1,8 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const schema = mongoose.Schema;
 
 // Create schema
-const UserSchema = new Schema({
+const UserSchema = new schema({
   name: {
     type: String,
     required: true
@@ -16,15 +16,14 @@ const UserSchema = new Schema({
     required: true
   },
   avatar: {
-    type: String,
-    required: true
+    type: String
   },
-  avatar: {
+  date: {
     type: Date,
     default: Date.now
-  },
+  }
 });
 
 // Export module for use outside of this file,
 // set a variable named User, set the name and pass the schema in
-module.exports = User = mongoose.model('users', UserSchema);
+module.exports = User = mongoose.model("users", UserSchema);
