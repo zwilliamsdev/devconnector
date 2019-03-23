@@ -1,6 +1,7 @@
 const express = require("express"); // Backend framework
 const mongoose = require("mongoose"); // MongoDB
 const bodyParser = require("body-parser"); // Parse inputs from website
+const passport = require("passport");
 const app = express(); // Express object
 const PORT = process.env.PORT || 5000; // Port for server to run on
 
@@ -11,6 +12,11 @@ const post = require("./routes/api/posts");
 // Body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+// Passport Middleware
+app.use(passport.initialize());
+// Passport Config
+require("./config/passport")(passport);
 
 // DB Config
 const db = require("./config/keys").mongoURI;
